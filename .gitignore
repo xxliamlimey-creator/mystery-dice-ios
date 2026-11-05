@@ -1,0 +1,23 @@
+# Build products
+build/
+artifacts/
+DerivedData/
+*.xcarchive
+*.ipa
+*.dSYM
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+
+# macOS
+.DS_Store
+
+# Tooling
+_work/
+node_modules/
+.npm-cache/
+__pycache__/
+*.pyc

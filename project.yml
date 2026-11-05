@@ -1,0 +1,52 @@
+#
+# XcodeGen alternative to the checked-in MysteryDice.xcodeproj.
+#
+#   brew install xcodegen
+#   xcodegen generate
+#
+# Optional. The .xcodeproj in this repo is complete and buildable on its own;
+# only run this if you would rather regenerate the project from a spec.
+
+name: MysteryDice
+options:
+  bundleIdPrefix: ai.studio
+  deploymentTarget:
+    iOS: "15.0"
+  createIntermediateGroups: true
+  minimumXcodeGenVersion: "2.38.0"
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    SWIFT_EMIT_LOC_STRINGS: YES
+
+targets:
+  MysteryDice:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources:
+      - path: MysteryDice/App
+      - path: MysteryDice/Config
+      - path: MysteryDice/Web
+      - path: MysteryDice/UI
+      - path: MysteryDice/Resources/Assets.xcassets
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ai.studio.mysterydice
+        PRODUCT_NAME: MysteryDice
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        INFOPLIST_FILE: MysteryDice/Resources/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MACCATALYST: NO
+        LD_RUNPATH_SEARCH_PATHS:
+          - "$(inherited)"
+          - "@executable_path/Frameworks"
